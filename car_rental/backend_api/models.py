@@ -36,4 +36,4 @@ class Rental(Model):
     rental_date = DateTimeField(default=datetime.now())
     return_term = DateTimeField(default=datetime.now() + timedelta(hours=1))
     return_date = DateTimeField(null=True, blank=True)
-    rental_cost = DecimalField(decimal_places=2)
+    rental_cost = DecimalField(max_digits=10, decimal_places=2)
