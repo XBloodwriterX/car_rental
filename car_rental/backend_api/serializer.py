@@ -4,7 +4,7 @@ from .models import Client, Car, Rental
 class ClientSerializer(ModelSerializer):
     class Meta:
         model = Client
-        fields = '__all__'
+        fields = ('first_name', 'last_name', 'age', 'PESEL', 'telephone_number', 'email', 'locality', 'street', 'zip_code')
 
 class CarSerializer(ModelSerializer):
     class Meta:
