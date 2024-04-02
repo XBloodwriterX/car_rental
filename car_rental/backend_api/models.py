@@ -8,7 +8,7 @@ from django.db.models import Model, CharField, IntegerField, BooleanField, TextF
 # Create your models here.
 class Car(Model):
     id = IntegerField(primary_key=True)
-    license_plate = CharField(max_length=8)
+    licence_plate = CharField(max_length=8)
     mark = CharField(max_length=50)
     model = CharField(max_length=50)
     VIN = CharField(max_length=17)

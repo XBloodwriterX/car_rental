@@ -1,6 +1,7 @@
 import React, {Component, FormEvent, ChangeEvent} from 'react';
 import axios from "axios";
-import {Button, Form, FormGroup, Input, Label, Card} from "reactstrap";
+import {Button, Form, FormGroup, Input, Label, Card, Navbar, Nav, NavItem, NavLink} from "reactstrap";
+import '../styles/LoginPage.scss'
 
 interface InputProps {
     first_name: string,
@@ -28,7 +29,7 @@ interface InputProps {
     notes: string
 }*/
 
-class ClientFormPage extends Component {
+class LoginPage extends Component {
     state = {
         details: [],
         data: {
@@ -43,6 +44,9 @@ class ClientFormPage extends Component {
             zip_code: "",
         }
     }
+
+
+
     componentDidMount() {
         console.log(this.state.data)
         let data;
@@ -66,12 +70,11 @@ class ClientFormPage extends Component {
                 [e.target.name]: value
             }
         })
-        console.log(this.state.data)
     }
 
     handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const userData: InputProps  = this.state.data;
+        const userData: InputProps = this.state.data;
         await axios.post('http://localhost:8000/clients/', userData, {
             headers: {
                 'Content-Type': 'application/json'
@@ -79,18 +82,21 @@ class ClientFormPage extends Component {
         )
         .then(response => {
             console.log(response);
+
         })
         .catch(err => {
             console.error(err);
         });
+        document.querySelectorAll('input').forEach(el => {
+            el.value = "";
+        })
     }
 
     render() {
         return (
             <Card style={{
                 width: "40rem",
-                padding: "1rem",
-                // margin: "1rem"
+                padding: "1rem"
             }}>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
@@ -204,7 +210,7 @@ class ClientFormPage extends Component {
                             size={5}
                         />
                     </FormGroup>
-                    <Button type="submit">
+                    <Button type="submit" color="primary">
                         Submit
                     </Button>
                 </Form>
@@ -213,4 +219,4 @@ class ClientFormPage extends Component {
     }
 }
 
-export default ClientFormPage;
+export default LoginPage;

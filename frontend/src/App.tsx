@@ -1,11 +1,11 @@
 import React from 'react';
-import ClientFormPage from "./pages/ClientFormPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
 
   return (
       <div className="App">
-        <ClientFormPage></ClientFormPage>
+        <LoginPage></LoginPage>
       </div>
   );
 }
