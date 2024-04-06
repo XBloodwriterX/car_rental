@@ -8,10 +8,13 @@ const HomePage = () => {
                 <NavbarBrand href="/">Car Rental</NavbarBrand>
                 <Nav className="me-auto" navbar>
                     <NavItem>
-                        <NavLink href="/cars">Cars</NavLink>
+                        <NavLink href="/login">Login</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/login">Clients</NavLink>
+                        <NavLink href="/clients">Clients</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href="/cars">Cars</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink href="/rentals">Rentals</NavLink>

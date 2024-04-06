@@ -1,33 +1,8 @@
 import React, {Component, FormEvent, ChangeEvent} from 'react';
-import axios from "axios";
 import {Button, Form, FormGroup, Input, Label, Card, Navbar, Nav, NavItem, NavLink} from "reactstrap";
+import {InputProps} from "../types";
 import '../styles/LoginPage.scss'
-
-interface InputProps {
-    first_name: string,
-    last_name: string,
-    age: string,
-    PESEL: string,
-    telephone_number: string,
-    email: string,
-    locality: string,
-    street: string,
-    zip_code: string,
-}
-
-/*interface OutputProps {
-    id: number,
-    first_name: string,
-    last_name: string,
-    age: number,
-    PESEL: string,
-    telephone_number: string,
-    email: string,
-    locality: string,
-    street: string,
-    zip_code: string,
-    notes: string
-}*/
+import axios from "axios";
 
 class LoginPage extends Component {
     state = {
@@ -51,15 +26,15 @@ class LoginPage extends Component {
         console.log(this.state.data)
         let data;
         axios.get('http://localhost:8000/clients/')
-        .then(res => {
-            data = res.data;
-            this.setState({
-                details: data
-            });
-        })
-        .catch(err => {
-            console.log(err);
-        })
+            .then(res => {
+                data = res.data;
+                this.setState({
+                    details: data
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     handleChange = (e: ChangeEvent<HTMLInputElement>) => {
