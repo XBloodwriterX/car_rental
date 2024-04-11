@@ -11,7 +11,8 @@ class CarAdmin(admin.ModelAdmin):
 class ClientAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name', 'age', 'PESEL', 'telephone_number', 'email', 'locality', 'street',
                     'zip_code', 'notes')
-    # search_fields = ('first_name', 'last_name')
+    search_fields = ('id', 'first_name', 'last_name', 'age', 'PESEL', 'telephone_number', 'email', 'locality', 'street',
+                    'zip_code')
 
 @admin.register(Rental)
 class RentalAdmin(admin.ModelAdmin):
