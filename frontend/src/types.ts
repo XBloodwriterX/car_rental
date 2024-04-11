@@ -1,4 +1,4 @@
-interface InputProps {
+interface ClientInputProps {
     first_name: string,
     last_name: string,
     age: string,
@@ -10,7 +10,7 @@ interface InputProps {
     zip_code: string,
 }
 
-interface OutputProps {
+interface ClientOutputProps {
     id: number,
     first_name: string,
     last_name: string,
@@ -24,4 +24,13 @@ interface OutputProps {
     notes: string
 }
 
-export type {InputProps, OutputProps};
+interface CarInputProps {
+    licence_plate: string,
+    mark: string,
+    model: string,
+    VIN: string,
+    price_per_hour: number,
+    is_useful: boolean,
+}
+
+export type {ClientInputProps, ClientOutputProps, CarInputProps};
